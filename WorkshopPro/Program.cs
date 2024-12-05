@@ -1,12 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WorkshopPro;
 using WorkshopPro.Data;
+using WorkshopPro.Interfaces;
+using WorkshopPro.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddTransient<Seed>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 // Adding Swagger servis
 builder.Services.AddEndpointsApiExplorer(); 
 builder.Services.AddSwaggerGen();
@@ -46,6 +49,6 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapRazorPages();
+//app.MapRazorPages();
 
 app.Run();
