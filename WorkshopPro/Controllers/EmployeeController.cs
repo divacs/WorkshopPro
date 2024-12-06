@@ -27,6 +27,35 @@ namespace WorkshopPro.Controllers
                 return BadRequest(ModelState);
             return Ok(employees);
         }
+
+        [HttpGet("{id}")]
+        [ProducesResponseType(200, Type = typeof(Employee))]
+        [ProducesResponseType(400)]
+        public IActionResult GetEmployee(int id)
+        {
+            if(!_employeeRepository.EmployeeExists(id))
+                return NotFound();
+
+            var employee = _employeeRepository.GetEmployee(id);
+
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+            return Ok(employee);
+        }
+
+        [HttpGet("{id}/firstName")]
+        [ProducesResponseType(200, Type = typeof(Employee))]
+        [ProducesResponseType(400)]
+        public IActionResult GetEmployee(string firstName)
+        {
+
+            var employee = _employeeRepository.GetEmployee(firstName);
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            return Ok(employee);
+        }
+
     }
     
 }
