@@ -11,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddTransient<Seed>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IMaterialRepository, MaterialRepository>();
 // Adding Swagger servis
 builder.Services.AddEndpointsApiExplorer(); 
 builder.Services.AddSwaggerGen();
