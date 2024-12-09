@@ -8,6 +8,7 @@ namespace WorkshopPro.Interfaces
         Material GetMaterial(int id);
         int GetMaterialQuantity(string name);
         int GetMaterialPrice(string name);
+        bool MaterialExists(int id); // checking if material with certan id exists
 
     }
 }

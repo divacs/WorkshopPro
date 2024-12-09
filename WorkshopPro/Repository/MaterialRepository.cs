@@ -31,5 +31,9 @@ namespace WorkshopPro.Repository
         {
             return _context.Materials.OrderBy(m => m.MaterialId).ToList();
         }
+        public bool MaterialExists(int id)
+        {
+            return _context.Materials.Any(e => e.MaterialId == id);
+        }
     }
 }
