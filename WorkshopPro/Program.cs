@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddTransient<Seed>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 // Adding Swagger servis
 builder.Services.AddEndpointsApiExplorer(); 
