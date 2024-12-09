@@ -21,7 +21,7 @@ namespace WorkshopPro.Controllers
         }
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Project>))]
-        public IActionResult GetEmployees()
+        public IActionResult GetProjects()
         {
             var project = _mapper.Map<List<ProjectDto>>(_projectRepository.GetProjects());
 
@@ -46,10 +46,10 @@ namespace WorkshopPro.Controllers
         [HttpGet("{id}/name")]
         [ProducesResponseType(200, Type = typeof(Project))]
         [ProducesResponseType(400)]
-        public IActionResult GetProject(string firstName)
+        public IActionResult GetProject(string name)
         {
 
-            var project = _mapper.Map<EmployeeDto>(_projectRepository.GetProject(firstName));
+            var project = _mapper.Map<EmployeeDto>(_projectRepository.GetProject(name));
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

@@ -11,6 +11,7 @@ namespace WorkshopPro.Helper
             CreateMap<Employee, EmployeeDto>();
             CreateMap<Material, MaterialDto>();
             CreateMap<Project, ProjectDto>();
+            CreateMap<Workshop, WorkshopDto>();
         }
     }
 }

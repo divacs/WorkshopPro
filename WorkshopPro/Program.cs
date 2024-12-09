@@ -13,6 +13,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IMaterialRepository, MaterialRepository>();
 builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
+builder.Services.AddScoped<IWorkshopRepository, WorkshopRepository>();
 // Adding Swagger servis
 builder.Services.AddEndpointsApiExplorer(); 
 builder.Services.AddSwaggerGen();
