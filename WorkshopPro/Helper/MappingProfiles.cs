@@ -9,6 +9,7 @@ namespace WorkshopPro.Helper
         public MappingProfiles()
         {
             CreateMap<Employee, EmployeeDto>();
+            CreateMap<Material, MaterialDto>();
         }
     }
 }
