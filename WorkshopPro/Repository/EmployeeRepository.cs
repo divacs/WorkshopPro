@@ -13,7 +13,7 @@ namespace WorkshopPro.Repository
         { 
             this._context = context;
         }
-
+        
         public bool EmployeeExists(int id)
         {
             return _context.Employees.Any(e => e.EmployeeId == id);
@@ -32,6 +32,35 @@ namespace WorkshopPro.Repository
         public ICollection<Employee> GetEmployees()
         {
             return _context.Employees.OrderBy(e => e.EmployeeId).ToList();
+        }
+
+        public bool CreateEmployee(Employee employee)
+        {
+            _context.Add(employee);
+            return Save();
+        }
+        public bool DeleteEmployee(Employee employee)
+        {
+            if (employee == null)
+                return false;
+
+            _context.Remove(employee);
+            Save();
+            return true;
+        }
+        public bool UpdateEmployee(Employee employee)
+        {
+            if(employee==null)
+                return false;
+
+            _context.Update(employee);
+            Save();
+            return true;
+        }
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
         }
     }
 }
